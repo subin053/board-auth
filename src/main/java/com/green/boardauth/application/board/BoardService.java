@@ -37,4 +37,8 @@ public class BoardService {
     public int modify(BoardPutReq req){
         return boardMapper.updated(req);
     }
+
+    public List<String> relatedText(String req){
+        return boardMapper.relatedText(req);
+    }
 }

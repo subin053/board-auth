@@ -13,4 +13,5 @@ public interface BoardMapper {
     BoardDetailReq detail(long id);
     int delBoard(long id);
     int updated(BoardPutReq req);
+    List<String> relatedText(String req);
 }

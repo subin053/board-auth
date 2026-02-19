@@ -15,7 +15,6 @@
         ON u.id = b.user_id
         <if test=" searchText != null and searchText != '' ">
             WHERE b.title LIKE '%${searchText}%'
-               OR b.contents LIKE '%${searchText}%'
         </if>
         ORDER BY b.id DESC
         LIMIT #{startIdx}, #{size}
@@ -40,4 +39,8 @@
     <update id="updated">
         update board set title=#{title}, contents=#{contents} where id=#{id};
     </update>
+
+    <select id="relatedText">
+        select distinct title from board where title LIKE concat(#{relatedText},'%') limit 10
+    </select>
 </mapper>

@@ -58,4 +58,10 @@ public class BoardController {
     public int modifyBoard(@RequestBody BoardPutReq req){
         return boardService.modify(req);
     }
+
+    @GetMapping("relatedTitle")
+    public ResultResponse<?> relatedTitle(@RequestParam (name = "relatedText") String req){
+        List<String> result= boardService.relatedText(req);
+        return new ResultResponse<>( "dd", result);
+    }
 }
